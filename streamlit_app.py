@@ -24,7 +24,7 @@ cp_type_options = ["No Pain", "Mild", "Moderate", "Severe", "Very Severe"]
 cp_type_str = st.selectbox("Select chest pain type:", cp_type_options, index=0)
 cp_type_mapping = {"No Pain": 0, "Mild": 1, "Moderate": 2, "Severe": 3, "Very Severe": 4}
 cp_type = cp_type_mapping.get(cp_type_str)
-
+input_data = None
 # Convert input data to appropriate types and validate input
 if age and bmi and bp and chol and plasma_glucose:
     input_data = np.array([[float(age), float(bmi), float(bp), float(chol), float(plasma_glucose), exercise_angina, cp_type]])
