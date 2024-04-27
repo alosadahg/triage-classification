@@ -15,16 +15,15 @@ A triage classifier that uses machine learning to distinguish the triage color f
 
 input_data = None
 
-bmi_range = (15, 50)
-bp_range = (80, 200)
-chol_range = (100, 500)
-plasma_glucose_range = (50, 400)
+bp_range = (60, 200)
+chol_range = (100, 300)
+plasma_glucose_range = (50, 300)
 
-age = st.number_input("Enter age: ", value=None, placeholder=15, key='age', min_value=10, max_value=150)
-bmi = st.number_input("Enter BMI (Range: 15-50): ", key='bmi', value=None,placeholder=20, min_value=bmi_range[0], max_value=bmi_range[1])
-bp = st.number_input("Enter blood pressure (Range: 80-200): ", value=None,placeholder=80, key='bp', min_value=bp_range[0], max_value=bp_range[1])
-chol = st.number_input("Enter cholesterol (Range: 100-500): ",value=None,placeholder=100,  key='chol', min_value=chol_range[0], max_value=chol_range[1])
-plasma_glucose = st.number_input("Enter plasma glucose (Range: 50-400): ", value=None,placeholder=50, key='plasma_glucose', min_value=plasma_glucose_range[0], max_value=plasma_glucose_range[1])
+age = st.number_input("Enter age: ", value=None, placeholder=15, key='age', min_value=0, max_value=150)
+bmi = st.number_input("Enter BMI: ", key='bmi', value=None)
+bp = st.number_input("Enter blood pressure: ", value=None,placeholder=80, key='bp', min_value=bp_range[0], max_value=bp_range[1])
+chol = st.number_input("Enter cholesterol: ",value=None,placeholder=100,  key='chol', min_value=chol_range[0], max_value=chol_range[1])
+plasma_glucose = st.number_input("Enter plasma glucose: ", value=None,placeholder=50, key='plasma_glucose', min_value=plasma_glucose_range[0], max_value=plasma_glucose_range[1])
 exercise_angina_str = st.radio("Do you experience exercise angina (chest pain during physical exercise)?", ("No", "Yes"), index=0)
 exercise_angina = 1 if exercise_angina_str == "Yes" else 0
 cp_type_options = ["No Pain (0)", "Mild (1)", "Moderate (2)", "Severe (3)", "Very Severe (4)"]
