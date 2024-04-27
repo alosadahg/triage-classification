@@ -20,7 +20,7 @@ chol = st.text_input("Enter cholesterol (Range: 100-500): ")
 plasma_glucose = st.text_input("Enter plasma glucose (Range: 50-400): ")
 exercise_angina_str = st.radio("Do you experience exercise angina (chest pain during physical exercise)?", ("No", "Yes"))
 exercise_angina = 1 if exercise_angina_str == "Yes" else 0
-cp_type_options = ["No Pain", "Mild", "Moderate", "Severe", "Very Severe"]
+cp_type_options = ["No Pain (0)", "Mild (1)", "Moderate (2)", "Severe (3)", "Very Severe (4)"]
 cp_type_str = st.selectbox("Select chest pain type:", cp_type_options, index=0)
 cp_type_mapping = {"No Pain (0)": 0, "Mild (1)": 1, "Moderate (2)": 2, "Severe (3)": 3, "Very Severe (4)": 4}
 cp_type = cp_type_mapping.get(cp_type_str)
@@ -36,7 +36,7 @@ if input_data is not None:
     if st.button('Predict'):
         prediction = model.predict(input_data)
         predicted_color = np.unique(prediction, return_counts=True)[0][np.argmax(np.unique(prediction, return_counts=True)[1])]
-        triage_mapping = {'red': 0, 'orange': 1, 'yellow': 2, 'green': 3}
+        triage_mapping = {'green': 0, 'yellow': 1, 'orange': 2, 'red': 3}
         triage_mapping_inv = {v: k for k, v in triage_mapping.items()}
         predicted_color_label = triage_mapping_inv[predicted_color]
         st.write(f"Predicted triage color: {predicted_color_label}")
